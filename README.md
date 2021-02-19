@@ -32,10 +32,51 @@ python manage.py runserver
 
 ## Funcionalidades 
 
+- Adiciona a organização na lista e consulta o mesmo  `GET`
+ 
+```pytho
+import requests
+r = requests.get('http://127.0.0.1:8000/api/orgs/{login}/') # No exemplo usaremos instruct-br
+r.json()
 
-- Lista organizações do GitHub ( adicionadas na API ) ordenados por prioridade
-> GET http://127.0.0.1:8000/api/orgs/
-- Adiciona a organização na lista e consulta o mesmo
-> GET http://127.0.0.1:8000/api/orgs/<organização>/
-- Remover organizações da lista
-> DEL http://127.0.0.1:8000/api/orgs/<organização>/
+output : {'login': 'instruct-br',
+          'name': 'Instruct',
+          'score': 49}
+```
+
+- Lista organizações do GitHub ( adicionadas na API ) ordenados por prioridade `GET`
+```pytho
+import requests
+r = requests.get('http://127.0.0.1:8000/api/orgs/')
+r.json()
+
+output : [
+  {
+    "login": "microsoft",
+    "name": "Microsoft",
+    "score": 3889
+  },
+  {
+    "login": "RedHatOfficial",
+    "name": "Red Hat",
+    "score": 62
+  },
+  {
+    "login": "instruct-br",
+    "name": "Instruct",
+    "score": 49
+  }
+]
+
+```
+- Remover organizações da lista `DELETE`
+
+
+```pytho
+import requests
+r = requests.delete('http://127.0.0.1:8000/api/orgs/microsoft/')
+r.status_code
+
+output : 204
+
+```

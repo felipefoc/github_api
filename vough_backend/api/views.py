@@ -20,11 +20,12 @@ class OrganizationViewSet(viewsets.ModelViewSet):
     serializer_class = OrganizationSerializer
     lookup_field = "login"
 
-    def retrieve(self, request, login=None):
-        api = GithubApi()
-        data = api.get_organization(login)
+    api = GithubApi()
 
-        public_members = api.get_organization_public_members(login)
+    def retrieve(self, request, login=None):
+
+        data = self.api.get_organization(login)
+        public_members = self.api.get_organization_public_members(login)
         try:
             organization = {
                 "login": data["login"],
