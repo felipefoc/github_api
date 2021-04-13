@@ -12,7 +12,7 @@ pip install pipenv
 
 
 
-No diretório ***"github_api\vough_backend"*** execute o comando abaixo para instalar todas as dependências necessárias para o funcionamento do projeto.
+Execute o comando abaixo para instalar todas as dependências necessárias para o funcionamento do projeto.
 
 ```bash
 pipenv install
