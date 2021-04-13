@@ -1,4 +1,4 @@
-# Resolução Teste Técnico Desenvolvedor(a) Python Júnior
+# Django Rest Framework GITHUB API
 API que calcula o valor de prioridade de cada cliente e retorna uma lista de clientes ordenados por prioridade
 
 ## Instalação
@@ -12,7 +12,7 @@ pip install pipenv
 
 
 
-No diretório ***"python_jr_instruct_teste\vough_backend"*** execute o comando abaixo para instalar todas as dependências necessárias para o funcionamento do projeto.
+No diretório ***"github_api\vough_backend"*** execute o comando abaixo para instalar todas as dependências necessárias para o funcionamento do projeto.
 
 ```bash
 pipenv install
@@ -36,12 +36,12 @@ python manage.py runserver
  
 ```pytho
 import requests
-r = requests.get('http://127.0.0.1:8000/api/orgs/{login}/') # No exemplo usaremos instruct-br
+r = requests.get('http://127.0.0.1:8000/api/orgs/{login}/') # No exemplo usaremos microsoft
 r.json()
 
-output : {'login': 'instruct-br',
-          'name': 'Instruct',
-          'score': 49}
+output : {'login': 'microsoft',
+          'name': 'Microsoft',
+          'score': 3889}
 ```
 
 - Lista organizações do GitHub ( adicionadas na API ) ordenados por prioridade `GET`
